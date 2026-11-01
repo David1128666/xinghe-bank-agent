@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1070" viewBox="0 0 1400 1070" role="img" aria-labelledby="title desc">
+<title id="title">星河虚拟银行 Agent 系统架构</title>
+<desc id="desc">同机浏览器和命令行经过规则解析，调用任务状态机、工具注册表、内存模拟银行和本地审计。没有真实银行、语言模型或后台调度。</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#8c86a6"/></marker></defs>
+<rect width="1400" height="1070" fill="#f7f6fc"/>
+<g font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif">
+<text x="48" y="52" font-size="32" fill="#292039" font-weight="700">星河虚拟银行 Agent</text>
+<text x="48" y="84" font-size="18" fill="#646078" font-weight="400">系统架构总览  /  已实现的本机教学原型</text>
+<text x="1120" y="64" font-size="16" fill="#646078" font-weight="400">文档基准 2026-10-29</text>
+<rect x="48" y="120" width="620" height="90" rx="18" fill="#ffffff" stroke="#ddd8ed" stroke-width="1.5"/>
+<text x="70" y="155" font-size="21" fill="#30283f" font-weight="700">浏览器工作台</text>
+<text x="70" y="185" font-size="16" fill="#646078" font-weight="400">聊天 · 表单 · 首次收款人核对 · 业务按钮</text>
+<rect x="732" y="120" width="620" height="90" rx="18" fill="#ffffff" stroke="#ddd8ed" stroke-width="1.5"/>
+<text x="754" y="155" font-size="21" fill="#30283f" font-weight="700">命令行演示</text>
+<text x="754" y="185" font-size="16" fill="#646078" font-weight="400">中文指令 · 字段补齐 · 核心默认确认</text>
+<rect x="48" y="280" width="620" height="110" rx="18" fill="#ffffff" stroke="#ddd8ed" stroke-width="1.5"/>
+<text x="70" y="315" font-size="21" fill="#30283f" font-weight="700">本机 HTTP 与浏览器会话</text>
+<text x="70" y="345" font-size="16" fill="#646078" font-weight="400">LocalBankServer / BrowserSession · 仅 127.0.0.1</text>
+<text x="70" y="370" font-size="16" fill="#646078" font-weight="400">Host / Origin / CSRF · Cookie · revision · 请求去重</text>
+<rect x="732" y="280" width="620" height="110" rx="18" fill="#ffffff" stroke="#ddd8ed" stroke-width="1.5"/>
+<text x="754" y="315" font-size="21" fill="#30283f" font-weight="700">规则对话与顺序工作流</text>
+<text x="754" y="345" font-size="16" fill="#646078" font-weight="400">DemoConversation / BrowserDemoConversation</text>
+<text x="754" y="370" font-size="16" fill="#646078" font-weight="400">结构化 OperationRequest · BankingWorkflow</text>
+<polyline points="358,210 358,280" fill="none" stroke="#8c86a6" stroke-width="2" marker-end="url(#arrow)"/>
+<polyline points="1042,210 1042,280" fill="none" stroke="#8c86a6" stroke-width="2" marker-end="url(#arrow)"/>
+<polyline points="668,335 732,335" fill="none" stroke="#8c86a6" stroke-width="2" marker-end="url(#arrow)"/>
+<polyline points="1042,390 1042,455" fill="none" stroke="#8c86a6" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="48" y="455" width="1304" height="205" rx="18" fill="#eee8fc" stroke="#c5b6e8" stroke-width="1.5"/>
+<text x="70" y="490" font-size="21" fill="#30283f" font-weight="700">BankingAgent / BrowserDemoAgent  ·  编排与策略核心</text>
+<rect x="68" y="515" width="286" height="123" rx="18" fill="#ffffff" stroke="#ddd8ed" stroke-width="1.5"/>
+<text x="90" y="550" font-size="21" fill="#30283f" font-weight="700">任务与字段</text>
+<text x="90" y="580" font-size="16" fill="#646078" font-weight="400">用户 / 会话归属绑定</text>
+<text x="90" y="605" font-size="16" fill="#646078" font-weight="400">缺配置、缺工具时阻断</text>
+<rect x="394" y="515" width="286" height="123" rx="18" fill="#ffffff" stroke="#ddd8ed" stroke-width="1.5"/>
+<text x="416" y="550" font-size="21" fill="#30283f" font-weight="700">认证与风险</text>
+<text x="416" y="580" font-size="16" fill="#646078" font-weight="400">STANDARD / ENHANCED</text>
+<text x="416" y="605" font-size="16" fill="#646078" font-weight="400">R0—R4 风险只升不降</text>
+<rect x="720" y="515" width="286" height="123" rx="18" fill="#ffffff" stroke="#ddd8ed" stroke-width="1.5"/>
+<text x="742" y="550" font-size="21" fill="#30283f" font-weight="700">预览与授权</text>
+<text x="742" y="580" font-size="16" fill="#646078" font-weight="400">摘要绑定、有效期、复验</text>
+<text x="742" y="605" font-size="16" fill="#646078" font-weight="400">显式确认 / 小额 / 范围</text>
+<rect x="1046" y="515" width="286" height="123" rx="18" fill="#ffffff" stroke="#ddd8ed" stroke-width="1.5"/>
+<text x="1068" y="550" font-size="21" fill="#30283f" font-weight="700">幂等执行</text>
+<text x="1068" y="580" font-size="16" fill="#646078" font-weight="400">原幂等键查询结果</text>
+<text x="1068" y="605" font-size="16" fill="#646078" font-weight="400">失败或未知不自动重提</text>
+<polyline points="354,575 394,575" fill="none" stroke="#8c86a6" stroke-width="2" marker-end="url(#arrow)"/>
+<polyline points="680,575 720,575" fill="none" stroke="#8c86a6" stroke-width="2" marker-end="url(#arrow)"/>
+<polyline points="1006,575 1046,575" fill="none" stroke="#8c86a6" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="48" y="730" width="850" height="125" rx="18" fill="#ffffff" stroke="#ddd8ed" stroke-width="1.5"/>
+<text x="70" y="765" font-size="21" fill="#30283f" font-weight="700">ToolRegistry → SimulatedBank</text>
+<text x="70" y="795" font-size="16" fill="#646078" font-weight="400">同一模拟实例实现认证、风控、解析、预览、执行、查询和审核</text>
+<text x="70" y="820" font-size="16" fill="#646078" font-weight="400">SyntheticStockMarket：固定虚构报价、Decimal 费用、独立持仓</text>
+<rect x="950" y="730" width="402" height="125" rx="18" fill="#ffffff" stroke="#ddd8ed" stroke-width="1.5"/>
+<text x="972" y="765" font-size="21" fill="#30283f" font-weight="700">AuditLog / privacy</text>
+<text x="972" y="795" font-size="16" fill="#646078" font-weight="400">执行前审计 · 追加 JSONL</text>
+<text x="972" y="820" font-size="16" fill="#646078" font-weight="400">标识 HMAC · SHA-256 日志链</text>
+<polyline points="472,660 472,730" fill="none" stroke="#8c86a6" stroke-width="2" marker-end="url(#arrow)"/>
+<polyline points="1150,660 1150,730" fill="none" stroke="#8c86a6" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="48" y="920" width="850" height="90" rx="18" fill="#ffffff" stroke="#ddd8ed" stroke-width="1.5"/>
+<text x="70" y="955" font-size="21" fill="#30283f" font-weight="700">每轮会话的内存数据</text>
+<text x="70" y="985" font-size="16" fill="#646078" font-weight="400">账户、联系人、任务、持仓、计划、幂等结果；重置或重启恢复样例</text>
+<rect x="950" y="920" width="402" height="90" rx="18" fill="#ffffff" stroke="#ddd8ed" stroke-width="1.5"/>
+<text x="972" y="955" font-size="21" fill="#30283f" font-weight="700">本地磁盘</text>
+<text x="972" y="985" font-size="16" fill="#646078" font-weight="400">data/*.jsonl；不用于恢复业务状态</text>
+<polyline points="472,855 472,920" fill="none" stroke="#8c86a6" stroke-width="2" marker-end="url(#arrow)"/>
+<polyline points="1150,855 1150,920" fill="none" stroke="#8c86a6" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="48" y="1048" font-size="17" fill="#646078" font-weight="400">全部数据为虚构样例 · 没有真实银行 / LLM / 数据库 / 后台调度 · 此图不是独立微服务部署图</text>
+</g>
+</svg>

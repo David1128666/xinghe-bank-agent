@@ -1,0 +1,27 @@
+__pycache__/
+*.py[cod]
+.venv/
+data/
+.env
+dist/
+
+# Local runtime, generated deliverables, temporary files, and editor state.
+runtime/
+output/
+tmp/
+.pytest_cache/
+.coverage
+htmlcov/
+*.log
+*.jsonl
+*.egg-info/
+build/
+.env.*
+!.env.example
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Local handoff history includes workstation paths; technical docs live in docs/.
+/进度记录.md

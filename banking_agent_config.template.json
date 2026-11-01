@@ -1,0 +1,17 @@
+{
+  "bank_name": null,
+  "jurisdiction": null,
+  "default_currency": null,
+  "timezone": null,
+  "low_risk_limit": null,
+  "high_risk_limit": null,
+  "daily_transfer_limit": null,
+  "investment_confirm_limit": null,
+  "confirmation_ttl": null,
+  "auth_methods": [],
+  "manual_review_channel": null,
+  "support_channel": null,
+  "available_tools": [],
+  "policy_version": null,
+  "audit_hash_key_env": "BANKING_AGENT_AUDIT_HASH_KEY"
+}

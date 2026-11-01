@@ -36,7 +36,6 @@ python -X utf8 launch_demo.py --web
 | [部署说明](部署说明.md) | 源码运行、Windows 分发、配置、验证和故障排查 |
 | [测试用例](docs/测试用例.md) | 自动化用例矩阵、手工验收和测试边界 |
 | [交付验收](docs/交付验收.md) | 本次实际验证结果与未执行范围 |
-| [GitHub 上传指南](GitHub上传指南.md) | 新建仓库、上传解压后的源码及 CI 使用 |
 
 ![系统架构总览](docs/架构图.svg)
 
@@ -186,17 +185,9 @@ python -m unittest discover -s tests -v
 
 演示仅支持 CNY 与给定虚构目录，APP/IM 是模拟渠道；定时执行、未来预算激活和原理财投资结算均由显式模拟按钮或命令触发，提醒只在本地列表显示。哈希链可检测日志改动，演示不提供生产级不可变存储或后台服务。网页审计分别保存在 `data/web-*.jsonl`，不会混用浏览器会话。
 
-## 重新制作 Windows 免安装版
+## Windows 免安装版
 
-构建脚本 `tools/build_portable.py` 接受从 [Python 官方发布页](https://www.python.org/downloads/release/python-31317/) 下载的 CPython 3.13.17 Windows x64 embeddable ZIP，先核对官方 SHA-256，再在 `dist/` 生成完整文件夹和压缩包：
-
-```powershell
-python -X utf8 tools/build_portable.py --python-archive data/packaging/python-3.13.17-embed-amd64.zip
-```
-
-压缩包保留原 Python 许可证和来源说明；不包含 `.git`、旧审计日志或 Python 缓存。免安装包使用隔离的本地运行时，不修改系统 PATH。此步骤仅供维护者制作分发包；收件人只需全部解压缩并双击启动。
-
-维护者可运行 `python -X utf8 tools/verify_portable.py <生成的ZIP路径>` 验证分发包：在包含中文和空格的临时目录中解压，将 PATH 限制为 Windows 系统目录，通过实际 CMD 启动命令行和网页入口，检查静态资源与业务状态，再使用包内 Python 运行全部测试。
+本包已包含 `runtime/`，解压后双击 `启动网页演示.cmd` 即可运行，不需要另行构建或安装 Python。源码版仍可使用 `python -X utf8 launch_demo.py --web` 启动。
 
 ## 2026-11-01 安全加固版
 
